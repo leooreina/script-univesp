@@ -2,25 +2,6 @@ import IScriptUnivesp from '../interfaces/IScriptUnivesp'
 import * as $ from 'jquery';
 
 export class ScriptsUnivespService implements IScriptUnivesp {
-
-    /** Verificações gerais: */
-    internetExplorer = (BrowserDetect.browser === 'Mozilla');
-    temTextArea = (document.getElementsByClassName('textarea').length > 0)
-    temInputField = (document.getElementsByClassName('inputfield').length > 0)
-    temInputFieldLinha = (document.getElementsByClassName('inputfieldlinha').length > 0)
-    temAudio = (document.getElementsByClassName('insertAudio').length > 0)
-    temModelo1 = (document.getElementsByClassName('btn-challenge').length > 0)
-    temModelo2 = (document.getElementsByClassName('botao-enviar-gabarito1').length > 0);
-    temModelo3 = (document.getElementsByClassName('botao-enviar-gabarito1-modelo3').length > 0);
-    temModelo4 = (document.getElementsByClassName('draggable-modelo4').length > 0)
-    temModelo5 = (document.getElementsByClassName('gridItem-modelo5').length > 0)
-    temModelo6 = (document.getElementsByClassName('caixa-checkbox').length > 0)
-    temModelo7 = (document.getElementsByClassName('caixa-checkbox-modelo7').length > 0)
-    temTranscricaoAudio = (document.getElementsByClassName('transcricao-audio-container').length > 0) || (document.getElementsByClassName('transcricao-audio-container-texto').length > 0)
-    temSaberMais = (document.getElementById('botao-saber-mais')) as any;
-    temImprimir = (document.getElementById('imprimir')) as any;
-
-
     browser: Function | string;
     version: number | string;
     OS: Function | string;
@@ -121,6 +102,23 @@ export class ScriptsUnivespService implements IScriptUnivesp {
             identity: "Linux"
         }
     ];
+
+    /** Verificações gerais: */
+    internetExplorer = (this.browser === 'Mozilla');
+    temTextArea = (document.getElementsByClassName('textarea').length > 0)
+    temInputField = (document.getElementsByClassName('inputfield').length > 0)
+    temInputFieldLinha = (document.getElementsByClassName('inputfieldlinha').length > 0)
+    temAudio = (document.getElementsByClassName('insertAudio').length > 0)
+    temModelo1 = (document.getElementsByClassName('btn-challenge').length > 0)
+    temModelo2 = (document.getElementsByClassName('botao-enviar-gabarito1').length > 0);
+    temModelo3 = (document.getElementsByClassName('botao-enviar-gabarito1-modelo3').length > 0);
+    temModelo4 = (document.getElementsByClassName('draggable-modelo4').length > 0)
+    temModelo5 = (document.getElementsByClassName('gridItem-modelo5').length > 0)
+    temModelo6 = (document.getElementsByClassName('caixa-checkbox').length > 0)
+    temModelo7 = (document.getElementsByClassName('caixa-checkbox-modelo7').length > 0)
+    temTranscricaoAudio = (document.getElementsByClassName('transcricao-audio-container').length > 0) || (document.getElementsByClassName('transcricao-audio-container-texto').length > 0)
+    temSaberMais = (document.getElementById('botao-saber-mais')) as any;
+    temImprimir = (document.getElementById('imprimir')) as any;
     
     public init(): void {
 
