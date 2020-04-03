@@ -159,6 +159,33 @@ export class ScriptsUnivespService implements IScriptUnivesp {
                 this.temTranscricaoAudio || this.temSaberMais || this.temImprimir
     }
 
+    public temMostrarGabarito(): boolean {
+        return this.temModelo2 || this.temModelo3
+    }
+
+    public verificaPaginaInicialAutomatizada(): boolean {
+        let menuSemanas = document.getElementsByClassName('container');
+        let classeSemana = document.getElementsByClassName('menu-semanas');
+        return menuSemanas.length > 0 && classeSemana.length > 0
+    }
+
+    public verificaPaginaInicialAutomatizada4Bimestre(): boolean {
+        let menuSemanas = document.getElementsByClassName('container');
+        let classeSemana = document.getElementsByClassName('menu-semanas-BIM042019');
+        return menuSemanas.length > 0 && classeSemana.length > 0
+    }
+
+    public verificaPaginaInicialAutomatizadaMediacao(): boolean {
+        let menuSemanas = document.getElementsByClassName('container');
+        let classeSemanaMed = document.getElementsByClassName('menu-semanas-med');
+        return menuSemanas.length > 0 && classeSemanaMed.length > 0;
+    }
+
+    public verificaPaginaInicialAutomatizadaMediacao2020(): boolean {
+        let menuSemanas = document.getElementsByClassName('container');
+        let classeSemanaMed = document.getElementsByClassName('menu-semanas-medi');
+        return menuSemanas.length > 0 && classeSemanaMed.length > 0;
+    }
 
     public rodarTodas(): void {
         $(document).ready(function(){
@@ -172,10 +199,6 @@ export class ScriptsUnivespService implements IScriptUnivesp {
             // escondeMostraConteudo();
             // addCalendario();
         })
-    }
-
-    public temMostrarGabarito(): boolean {
-        return this.temModelo2 || this.temModelo3
     }
 }
 
