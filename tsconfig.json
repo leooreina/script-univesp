@@ -4,6 +4,7 @@
       "module": "system",
       "sourceMap": true,
       "outDir": "./dist",
-      "outFile": "./dist/univesp.js"
+      "outFile": "./dist/univesp.js",
+      "noEmitOnError": true
     }
-  }
+}
