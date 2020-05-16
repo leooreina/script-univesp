@@ -12,10 +12,7 @@ describe("Teste básico de login no portal do Canvas", () => {
     it("Deve logar com usuário válido", () => {
         
         // visitando o site de login da univesp
-        cy.visit('https://login.univesp.br')
-
-        // clica no primeiro link (direciona para a página de login)
-        cy.get('ul li:first').click()
+        cy.visit('https://cursos.univesp.br')
 
         // seleciona o campo de login e digita o username
         cy.get('#username').type(Cypress.env('USERNAME'))
@@ -29,6 +26,12 @@ describe("Teste básico de login no portal do Canvas", () => {
         // Clica no botão "enviar"
         cy.get('.btn-red').contains('Enviar').click()
 
-        cy.visit('https://cursos.univesp.br/courses/3028')
+        cy.request('POST', 'https://cursos.univesp.br/login/saml', 
+        { username: Cypress.env('USERNAME'),
+            password: Cypress.env('PASSWORD')
+        })
+        .then(res => {
+            cy.visit('https://login.univesp.br/simplesaml/module.php/core/loginuserpass.php?AuthState=_106fc02920d697261542702f0116517e576cc9bb24%3Ahttps%3A%2F%2Flogin.univesp.br%2Fsimplesaml%2Fsaml2%2Fidp%2FSSOService.php%3Fspentityid%3Dhttp%253A%252F%252Fcursos1.univesp.br%252Fsaml2%26cookieTime%3D1589588198')
+        })
     })
 })
