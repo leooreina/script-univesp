@@ -31,7 +31,21 @@ describe("Teste básico de login no portal do Canvas", () => {
             password: Cypress.env('PASSWORD')
         })
         .then(res => {
-            cy.visit('https://login.univesp.br/simplesaml/module.php/core/loginuserpass.php?AuthState=_106fc02920d697261542702f0116517e576cc9bb24%3Ahttps%3A%2F%2Flogin.univesp.br%2Fsimplesaml%2Fsaml2%2Fidp%2FSSOService.php%3Fspentityid%3Dhttp%253A%252F%252Fcursos1.univesp.br%252Fsaml2%26cookieTime%3D1589588198')
+            // cy.visit('https://cursos.univesp.br/simplesaml/module.php/core/loginuserpass.php?AuthState=_106fc02920d697261542702f0116517e576cc9bb24%3Ahttps%3A%2F%2Flogin.univesp.br%2Fsimplesaml%2Fsaml2%2Fidp%2FSSOService.php%3Fspentityid%3Dhttp%253A%252F%252Fcursos1.univesp.br%252Fsaml2%26cookieTime%3D1589588198')
+            
+            cy.wait(5000)
+
+            cy.get('#global_nav_courses_link').click()
+
+            cy.wait(2000)
+
+            cy.get('a').contains('Todos os Cursos').click()
+
+            cy.contains('AAG002').click()
+
+            cy.contains('Poder e Cultura Organizacional').next().click()
+
+            cy.get('span').contains('Plano de Ensino').should('be.visible')
         })
     })
 })
