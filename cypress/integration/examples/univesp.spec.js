@@ -8,12 +8,16 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     return false
   })
 
+  let disciplinas = [
+    'AAG002',
+    'EIR201',
+    'EID002'
+  ]
+
 describe("Teste básico de login no portal do Canvas", () => {
     it("Deve logar com usuário válido", () => {
         cy.login().then(res => {
-            cy.verificaDesbloqueio('AAG002', '.semana-4')
-            cy.verificaDesbloqueio('EIR201', '.semana-4')
-            cy.verificaDesbloqueio('EID002', '.semana-4')
+            disciplinas.map(disciplina => cy.verificaDesbloqueio(disciplina, '.semana-4'))
         })
     })
 })
