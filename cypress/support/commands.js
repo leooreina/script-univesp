@@ -33,7 +33,7 @@ Cypress.Commands.add('verificaDesbloqueio',
 
     cy.get('a').contains('Todos os Cursos').click()
 
-    cy.contains(codigo).click()
+    cy.contains(codigo).click({force: true})
 
     cy.get(classe).click()
 
