@@ -14,7 +14,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
   'MGD001', 'SDE001', 'SFG001', 'SHT001', 'SAL002', 'ECP001', 'GCP001', 'AGF020', 'ESP022', 'AMB011', 'JLG008', 
   'SAA001', 'LIN101', 'SPE001', 'LET100', 'MMB002', 'INT100']
 
-describe("Teste básico de login no portal do Canvas", () => {
+describe("Teste de verificação das páginas das semanas", () => {
     it("Deve logar com usuário válido", () => {
         cy.login().then(res => {
             disciplinas.map(disciplina => cy.verificaDesbloqueio(disciplina, '.semana-4'))
